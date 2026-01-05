@@ -1,0 +1,105 @@
+export const MATURITY_LEVELS = [
+  {
+    level: 1,
+    name: "Awareness",
+    title: "AI Awareness & Fundamentals",
+    shortDescription: "Understanding what AI is and its potential",
+    description: "Build foundational understanding of AI concepts, terminology, and how AI tools can support your work. Learn to identify opportunities where AI can add value.",
+    skills: [
+      "Understanding AI terminology",
+      "Recognizing AI-powered tools",
+      "Identifying use cases",
+      "Basic prompt awareness",
+    ],
+    outcomes: [
+      "Can explain AI concepts to others",
+      "Understands AI capabilities and limitations",
+      "Identifies potential AI applications",
+    ],
+    icon: "Lightbulb",
+    color: "level-1",
+  },
+  {
+    level: 2,
+    name: "Practical",
+    title: "Practical Usage & Confidence",
+    shortDescription: "Hands-on experience with AI tools",
+    description: "Develop hands-on skills using AI tools for everyday tasks. Build confidence through guided exercises and real-world applications.",
+    skills: [
+      "Basic prompt engineering",
+      "Using AI assistants effectively",
+      "Document and content creation",
+      "Simple automation tasks",
+    ],
+    outcomes: [
+      "Uses AI tools regularly",
+      "Writes effective prompts",
+      "Completes tasks faster with AI",
+    ],
+    icon: "Wrench",
+    color: "level-2",
+  },
+  {
+    level: 3,
+    name: "Productivity",
+    title: "Productivity & Optimization",
+    shortDescription: "Maximizing efficiency with AI workflows",
+    description: "Optimize your workflows with advanced AI techniques. Learn to chain tasks, create templates, and build repeatable processes that multiply your productivity.",
+    skills: [
+      "Advanced prompt techniques",
+      "Workflow automation",
+      "Template creation",
+      "Multi-step AI processes",
+    ],
+    outcomes: [
+      "Significant productivity gains",
+      "Created personal AI workflows",
+      "Reduces manual work substantially",
+    ],
+    icon: "Zap",
+    color: "level-3",
+  },
+  {
+    level: 4,
+    name: "Advanced",
+    title: "Advanced Application & Systems",
+    shortDescription: "Building complex AI-powered systems",
+    description: "Design and implement sophisticated AI-powered systems. Integrate AI across multiple tools and processes to create transformative business solutions.",
+    skills: [
+      "Complex AI integrations",
+      "Custom AI solutions",
+      "Data-driven decisions",
+      "Process transformation",
+    ],
+    outcomes: [
+      "Designs AI-powered systems",
+      "Transforms business processes",
+      "Measures and optimizes AI impact",
+    ],
+    icon: "Cpu",
+    color: "level-4",
+  },
+  {
+    level: 5,
+    name: "Enabler",
+    title: "Enablement & Teaching Others",
+    shortDescription: "Leading AI adoption and mentoring",
+    description: "Lead AI adoption initiatives and mentor others on their AI journey. Share knowledge, develop training materials, and drive organizational change.",
+    skills: [
+      "AI training development",
+      "Mentoring and coaching",
+      "Change management",
+      "AI strategy planning",
+    ],
+    outcomes: [
+      "Trains others effectively",
+      "Leads AI initiatives",
+      "Drives organizational adoption",
+    ],
+    icon: "Users",
+    color: "level-5",
+  },
+] as const;
+
+export type MaturityLevel = typeof MATURITY_LEVELS[number];
+export type MaturityLevelNumber = 1 | 2 | 3 | 4 | 5;
