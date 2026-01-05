@@ -18,41 +18,14 @@ export function Header() {
             <Brain className="w-5 h-5 text-primary-foreground" />
           </div>
           <span className="font-heading font-semibold text-lg text-foreground">
-            AI Maturity
+            AI Readiness
           </span>
         </Link>
 
-        {/* Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
-          <Link
-            to="/"
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Home
-          </Link>
-          <Link
-            to="/courses"
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Courses
-          </Link>
-          <Link
-            to="/maturity-model"
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Maturity Model
-          </Link>
-        </nav>
-
-        {/* Auth buttons */}
-        <div className="flex items-center gap-3">
-          <Button variant="ghost" size="sm" asChild>
-            <Link to="/auth">Sign In</Link>
-          </Button>
-          <Button variant="default" size="sm" asChild>
-            <Link to="/auth?mode=signup">Get Started</Link>
-          </Button>
-        </div>
+        {/* CTA */}
+        <Button variant="default" size="sm" asChild>
+          <Link to="/quiz">Take the Quiz</Link>
+        </Button>
       </div>
     </motion.header>
   );

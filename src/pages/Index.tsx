@@ -1,55 +1,14 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, TrendingUp, Users, BookOpen, Target, CheckCircle } from "lucide-react";
+import { ArrowRight, Sparkles, CheckCircle, Clock, Gift } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { MaturityLevelCard } from "@/components/MaturityLevelCard";
-import { MaturityProgressBar } from "@/components/MaturityProgressBar";
-import { MATURITY_LEVELS } from "@/lib/maturity-model";
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 },
-};
-
-const staggerContainer = {
-  animate: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const features = [
-  {
-    icon: Target,
-    title: "Structured Learning Path",
-    description: "Progress through 5 clear maturity levels with curated content designed for real-world application.",
-  },
-  {
-    icon: BookOpen,
-    title: "Practical Exercises",
-    description: "Learn by doing with hands-on exercises, real prompts, and tasks you can apply immediately.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Track Your Progress",
-    description: "Visual dashboards show your growth, skills acquired, and next steps in your AI journey.",
-  },
-  {
-    icon: Users,
-    title: "Team Adoption",
-    description: "Enable your entire team to grow together with shared learning paths and progress tracking.",
-  },
-];
-
-const stats = [
-  { value: "5", label: "Maturity Levels" },
-  { value: "50+", label: "Learning Modules" },
-  { value: "100+", label: "Practical Exercises" },
-  { value: "10k+", label: "Learners" },
+const benefits = [
+  "Discover your AI readiness level",
+  "Get 3 personalized quick wins",
+  "Free AI prompt pack (10+ templates)",
 ];
 
 export default function Index() {
@@ -69,7 +28,7 @@ export default function Index() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto text-center"
+            className="max-w-3xl mx-auto text-center"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -78,151 +37,44 @@ export default function Index() {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6"
             >
               <Sparkles className="w-4 h-4" />
-              AI Adoption Made Simple
+              Free 2-Minute Assessment
             </motion.div>
 
             <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-              Master AI at Your Own Pace with a{" "}
-              <span className="gradient-text">Proven Maturity Model</span>
+              How AI-Ready Is{" "}
+              <span className="gradient-text">Your Business?</span>
             </h1>
 
             <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              A structured learning platform that takes small businesses from AI awareness
-              to confident adoption—building skills that stick and compound over time.
+              Take the AI Readiness Quiz and get your personalized score, 
+              quick wins you can implement today, and a free AI prompt pack.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="xl" asChild>
-                <Link to="/auth?mode=signup">
-                  Start Your Journey
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </Button>
-              <Button variant="hero-outline" size="xl" asChild>
-                <Link to="/maturity-model">
-                  Explore the Model
-                </Link>
-              </Button>
-            </div>
+            <Button variant="hero" size="xl" asChild>
+              <Link to="/quiz">
+                Get Your Score
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </Button>
 
-            {/* Stats */}
+            {/* Benefits */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="grid grid-cols-2 sm:grid-cols-4 gap-8 mt-16 pt-8 border-t border-border"
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8"
             >
-              {stats.map((stat, index) => (
-                <div key={stat.label} className="text-center">
-                  <div className="font-heading text-3xl font-bold text-foreground">{stat.value}</div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
+              {benefits.map((benefit, index) => (
+                <div
+                  key={benefit}
+                  className="flex items-center gap-2 text-sm text-muted-foreground"
+                >
+                  <CheckCircle className="w-4 h-4 text-accent" />
+                  <span>{benefit}</span>
                 </div>
               ))}
             </motion.div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Maturity Model Preview */}
-      <section className="py-20 bg-secondary/30">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              The AI Maturity Model
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A proven framework that guides your journey from AI beginner to confident practitioner
-              who can enable others.
-            </p>
-          </motion.div>
-
-          {/* Progress bar preview */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="max-w-3xl mx-auto mb-12 p-6 bg-card rounded-2xl border border-border shadow-lg"
-          >
-            <MaturityProgressBar currentLevel={2} progress={60} />
-          </motion.div>
-
-          {/* Maturity level cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {MATURITY_LEVELS.slice(0, 3).map((level, index) => (
-              <MaturityLevelCard
-                key={level.level}
-                level={level}
-                currentLevel={2}
-                delay={0.1 * index}
-              />
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-center mt-8"
-          >
-            <Button variant="outline" size="lg" asChild>
-              <Link to="/maturity-model">
-                View All 5 Levels
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </Button>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Features */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Built for Real Adoption
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Not just another course platform—a complete system designed to make AI skills
-              stick and become part of your daily workflow.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 * index }}
-                className="p-6 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300 group"
-              >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                  <feature.icon className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="font-heading font-semibold text-lg text-foreground mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-muted-foreground">
-                  {feature.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -234,32 +86,32 @@ export default function Index() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
-            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-4">
+            <h2 className="font-heading text-3xl font-bold text-foreground mb-4">
               How It Works
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Three simple steps to transform your relationship with AI.
-            </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {[
               {
+                icon: Clock,
                 step: "01",
-                title: "Assess Your Level",
-                description: "Take a quick assessment to discover your current AI maturity level and get personalized recommendations.",
+                title: "2-Minute Quiz",
+                description: "Answer 10 quick questions about how you use AI in your business.",
               },
               {
+                icon: Sparkles,
                 step: "02",
-                title: "Learn & Practice",
-                description: "Follow structured courses with hands-on exercises designed for your specific maturity stage.",
+                title: "Get Your Score",
+                description: "Receive your AI Readiness Score (0-100) and your current level.",
               },
               {
+                icon: Gift,
                 step: "03",
-                title: "Track & Advance",
-                description: "Monitor your progress, earn achievements, and advance through the maturity model at your pace.",
+                title: "Unlock Quick Wins",
+                description: "Get personalized action items and a free AI prompt pack via email.",
               },
             ].map((item, index) => (
               <motion.div
@@ -268,20 +120,29 @@ export default function Index() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 * index }}
-                className="relative text-center"
+                className="relative text-center p-6"
               >
-                <div className="text-6xl font-heading font-bold text-primary/10 mb-4">
-                  {item.step}
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                  <item.icon className="w-7 h-7 text-primary" />
                 </div>
-                <h3 className="font-heading font-semibold text-xl text-foreground mb-2">
+                <h3 className="font-heading font-semibold text-lg text-foreground mb-2">
                   {item.title}
                 </h3>
-                <p className="text-muted-foreground">
+                <p className="text-muted-foreground text-sm">
                   {item.description}
                 </p>
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Social Proof Placeholder */}
+      <section className="py-16">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-muted-foreground">
+            Join <span className="font-semibold text-foreground">500+</span> business owners who've taken the quiz
+          </p>
         </div>
       </section>
 
@@ -293,34 +154,25 @@ export default function Index() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto p-12 rounded-3xl bg-gradient-to-br from-primary/10 via-primary/5 to-accent/10 border border-primary/20 text-center relative overflow-hidden"
+            className="max-w-3xl mx-auto p-10 rounded-3xl bg-gradient-to-br from-primary/10 via-primary/5 to-accent/10 border border-primary/20 text-center relative overflow-hidden"
           >
-            {/* Decorative elements */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
 
             <div className="relative z-10">
-              <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-4">
-                Ready to Transform Your AI Skills?
+              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground mb-4">
+                Ready to See Where You Stand?
               </h2>
-              <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Join thousands of professionals who are building confidence and competence
-                in AI—one level at a time.
+              <p className="text-muted-foreground mb-6">
+                It only takes 2 minutes. No credit card. No strings attached.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="hero" size="xl" asChild>
-                  <Link to="/auth?mode=signup">
-                    Get Started Free
-                    <ArrowRight className="w-5 h-5" />
-                  </Link>
-                </Button>
-              </div>
-
-              <p className="text-sm text-muted-foreground mt-6">
-                <CheckCircle className="w-4 h-4 inline-block mr-1 text-accent" />
-                No credit card required • Start learning in minutes
-              </p>
+              <Button variant="hero" size="xl" asChild>
+                <Link to="/quiz">
+                  Take the Quiz Now
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+              </Button>
             </div>
           </motion.div>
         </div>
