@@ -1,3 +1,24 @@
+<script>
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const accessFromGumroad = params.get("access");
+
+    if (accessFromGumroad === "true") {
+      localStorage.setItem("paid_access", "true");
+      window.history.replaceState({}, document.title, "/app");
+      return;
+    }
+
+    const hasAccess = localStorage.getItem("paid_access");
+
+    if (!hasAccess) {
+      window.location.href = "/purchase-required";
+    }
+  })();
+</script>
+
+
+
 <!doctype html>
 <html lang="en">
   <head>
