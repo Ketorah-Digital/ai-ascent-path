@@ -16,8 +16,8 @@ export function Footer() {
               <span className="font-heading font-semibold text-lg">AI Maturity</span>
             </Link>
             <p className="text-sm text-muted-foreground max-w-md">
-              Empowering small businesses and their teams to confidently adopt AI through
-              structured learning and progressive skill development.
+              Empowering small businesses and their teams to confidently adopt AI through structured learning and
+              progressive skill development.
             </p>
             <div className="flex gap-4 mt-6">
               <a
@@ -51,7 +51,10 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/maturity-model" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <Link
+                  to="/maturity-model"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
                   Maturity Model
                 </Link>
               </li>
@@ -86,9 +89,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-border mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted-foreground">
-            © 2025 AI Maturity Platform. All rights reserved.
-          </p>
+          <p className="text-sm text-muted-foreground">© 2026 AI Maturity Platform. All rights reserved.</p>
           <div className="flex gap-6">
             <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Privacy
